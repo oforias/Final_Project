@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expense - ExpenseFlow</title>
+    <link rel="stylesheet" href="add-expense.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+      .bar-chart {
+          display: flex;
+          align-items: flex-end;
+          height: 200px;
+          width: 100%;
+      }
+
+      .bar {
+          background-color: #0891b2;
+          width: 30px;
+          margin: 0 5px;
+          text-align: center;
+          color: white;
+      }
+    </style>
+</head>
+<body>
+    <!-- Home Button -->
+<button onclick="window.location.href='dashboard.php'" class="home-btn">🏠 Home</button>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-switch" id="themeToggle">🌓</div>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <h1>Add Expense</h1>
+        <p>Log your expenses to track your financial journey.</p>
+        
+        <!-- Expense Form -->
+        <form id="expense-form">
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" placeholder="Optional description">
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <!-- Categories dynamically fetched -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="">Select Payment Method</option>
+                    <!-- Payment methods dynamically fetched -->
+                </select>
+            </div>
+            <button type="submit" class="submit-button">Save Expense</button>
+        </form>
+
+        <!-- Simple Bar Chart -->
+        <div class="bar-chart" id="expenseBarChart"></div>
+
+        <!-- Income vs. Expense Comparison -->
+        <div class="bar-chart" id="incomeExpenseComparison"></div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message">
+        Expense added successfully! Redirecting to Dashboard...
+    </div>
+
+    <script src="add-expense.js"></script>
+</body>
+</html>

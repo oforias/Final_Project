@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Budget</title>
+    <link rel="stylesheet" href="set-budget.css">
+</head>
+<body>
+    <header> 
+        <h1>Set Budget</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="add-expense.html">Add Expense</a></li>
+                <li><a href="set-budget.html">Set Budget</a></li>
+                <li><a href="manage-recurring.html">Recurring Expenses</a></li>
+                <li><a href="view-expenses.html">View Expenses</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="budget-form">
+            <select id="budget-category">
+                <option value="">Select Category</option>
+                <!-- Dynamic options -->
+            </select>
+            <input type="month" id="budget-month" required>
+            <input type="number" id="budget-amount" placeholder="Amount" required>
+            <button type="submit">Set Budget</button>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

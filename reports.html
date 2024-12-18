@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - ExpenseFlow</title>
+    <link rel="icon" type="image/svg+xml" href="pictures/favicon-updated.svg">
+    <link rel="alternate icon" type="image/x-icon" href="pictures/favicon-new.ico">
+    <link rel="stylesheet" href="reports.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="reports.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Home Button -->
+    <button onclick="checkLoginAndRedirect('dashboard.php')" class="home-btn">🏠 Home</button>
+    <!-- Theme Toggle -->
+    <div class="theme-switch" id="themeToggle">🌙</div>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <h1>Financial Reports</h1>
+        <p>Get a detailed summary of your financial activities.</p>
+
+        <!-- Summary Section -->
+        <div class="summary">
+            <h2>Summary</h2>
+            <p id="income-summary">Total Income: $0</p>
+            <p id="expense-summary">Total Expenses: $0</p>
+            <p id="balance-summary">Balance: $0</p>
+            <p id="advice">Advice: --</p>
+        </div>
+
+        <!-- Graphs Section -->
+        <div class="graphs">
+            <div class="graph-container">
+                <h2>Monthly Income vs Expenses</h2>
+                <canvas id="expenseGraph"></canvas>
+            </div>
+
+            <div class="graph-grid">
+                <div class="graph-container">
+                    <h2>Income vs Expenses Overview</h2>
+                    <canvas id="incomeExpensePie"></canvas>
+                </div>
+
+                <div class="graph-container">
+                    <h2>Expense Categories</h2>
+                    <canvas id="expenseCategoriesPie"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <button id="download-report" class="download-btn">
+            <i class="fas fa-download"></i> Download Report
+        </button>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message"></div>
+
+    <script>
+        // Function to check login status before redirecting
+        function checkLoginAndRedirect(destination) {
+            fetch('check_login.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.logged_in) {
+                        window.location.href = destination;
+                    } else {
+                        alert('Please log in to access the dashboard.');
+                        window.location.href = 'login.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        }
+    </script>
+</body>
+</html>

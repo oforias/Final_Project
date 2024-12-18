@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - M-ExpenseFlow</title>
+    <link rel="icon" type="image/svg+xml" href="pictures/favicon-updated.svg">
+    <link rel="alternate icon" type="image/x-icon" href="pictures/favicon-new.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="signup.css">
+
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeToggle">🌓</div>
+    
+    <div class="container">
+        <div class="signup-card">
+            <div class="header">
+                <h1>Create Account</h1>
+                <p>Join us to manage your expenses better</p>
+            </div>
+
+            <form id="signupForm" action="signup.php" method="POST" enctype="multipart/form-data">
+                <!-- Full Name Input -->
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" name="full_name" id="fullName" required>
+                    <div class="error-message" id="nameError">Please enter your full name</div>
+                </div>
+
+                <div class="profile-upload">
+                    <div class="profile-preview" id="profilePreview">
+                        <span>Add Photo</span>
+                    </div>
+                    <input type="file" id="profilePhoto" class="file-input" name="profile_photo" accept="image/*">
+                    <label for="profilePhoto" class="upload-label">Choose profile picture</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" name="email" id="email" required>
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" name="password" id="password" required>
+                    <div class="password-strength">
+                        <div class="strength-meter" id="strengthMeter"></div>
+                    </div>
+                    <div class="password-hints">
+                        <div class="hint" id="lengthHint">At least 8 characters</div>
+                        <div class="hint" id="caseHint">Upper & lowercase letters</div>
+                        <div class="hint" id="numberHint">At least one number</div>
+                        <div class="hint" id="specialHint">At least one special character</div>
+                    </div>
+                    <div class="error-message" id="passwordError">Password is too weak</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" id="confirmPassword" required>
+                    <div class="error-message" id="confirmError">Passwords do not match</div>
+                </div>
+                <div class="login-prompt">
+                    <p>Already have an account? <a href="login.html" class="login-link">Sign In</a></p>
+                </div>
+
+                <div class="terms-container">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="terms" class="terms-checkbox" hidden required>
+                        <div class="custom-checkbox"></div>
+                        <span class="terms-text">
+                            I agree to the <a href="#" class="terms-link">Terms of Service</a> and 
+                            <a href="#" class="terms-link">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-button">Create Account</button>
+            </form>
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html>

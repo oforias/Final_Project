@@ -1,0 +1,179 @@
+/* Root Variables for Light and Dark Modes */
+:root {
+    --primary: #0891b2;
+    --primary-light: #22d3ee;
+    --bg-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #555;
+    --success: #059669;
+    --error: #dc2626;
+}
+
+[data-theme="dark"] {
+    --primary: #06b6d4;
+    --primary-light: #22d3ee;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --success: #10b981;
+    --error: #ef4444;
+}
+
+/* Base Styles */
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Theme Switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.theme-switch:hover {
+    transform: rotate(180deg);
+}
+
+/* Home Button */
+.home-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    color: #0891b2;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Page Container */
+.page-container {
+    position: relative;
+    z-index: 2;
+    background: var(--card-bg);
+    padding: 40px;
+    margin: 100px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form and Content */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: var(--primary);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--text-secondary);
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--primary-light);
+}
+
+.success-message {
+    display: none;
+    margin-top: 15px;
+    color: var(--success);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 20px;
+    }
+}

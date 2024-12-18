@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding - ExpenseFlow</title>
+    <link rel="stylesheet" href="onboarding.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-switch" id="themeToggle">🌓</div>
+    <div class="onboarding-container">
+        <h1 id="welcomeMessage">Welcome to ExpenseFlow!</h1>
+        <p>Let’s guide you through setting up your account.</p>
+
+        <div class="onboarding-steps">
+            <div class="step">
+                <div class="step-icon">🎯</div>
+                <h3>Step 1: Set Your Preferences</h3>
+                <p>Customize your budget categories and notifications.</p>
+                <button id="step1" class="button">Set Preferences</button>
+            </div>
+            <div class="step">
+                <div class="step-icon">📊</div>
+                <h3>Step 2: Add Your First Expense</h3>
+                <p>Record your first transaction and start tracking.</p>
+                <button id="step2" class="button" disabled>Add Expense</button>
+            </div>
+            <div class="step">
+                <div class="step-icon">📈</div>
+                <h3>Step 3: Explore Analytics</h3>
+                <p>Visualize your spending habits with smart insights.</p>
+                <button id="step3" class="button" disabled>View Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="success-message">
+        Action successful! Redirecting...
+    </div>
+
+    <script src="onboarding.js"></script>
+</body>
+</html>
